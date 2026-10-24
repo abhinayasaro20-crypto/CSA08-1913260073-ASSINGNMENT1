@@ -1,0 +1,22 @@
+# Task 4: Complete TODO 1 - Using Decimal for exact financial calculations
+from decimal import Decimal
+
+payments = ["33.40"] * 1000 + ["0.10"] * 3
+
+def total_float(items):
+    total = 0.0
+    for amount in items:
+        total += float(amount)
+    return total
+
+def total_decimal(items):
+    # TODO 1: Add amounts exactly using Decimal
+    total = Decimal("0.00")
+    for amount in items:
+        total += Decimal(amount)
+    return total
+
+print("float   :", total_float(payments))
+print("Decimal :", total_decimal(payments))
+print("Float Equality Check:", 0.1 + 0.2 == 0.3)[cite: 4, 6]
+print("Decimal Equality Check:", Decimal("0.1") + Decimal("0.2") == Decimal("0.3"))
