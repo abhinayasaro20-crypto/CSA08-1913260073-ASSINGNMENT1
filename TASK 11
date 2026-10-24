@@ -1,0 +1,13 @@
+# Task 10: Mathematical Expressions for Fat and SNF Steps
+from decimal import Decimal
+
+fat_percentage = Decimal('4.2')
+snf_percentage = Decimal('8.8')
+base_rate = Decimal('30.00')
+
+# Calculate step deviations relative to standard baseline
+fat_steps = (fat_percentage - Decimal('3.5')) / Decimal('0.1')
+snf_steps = (snf_percentage - Decimal('8.5')) / Decimal('0.1')
+
+rate_per_litre = base_rate + (fat_steps * Decimal('0.40')) + (snf_steps * Decimal('0.30'))
+print("Calculated Rate per Litre:", rate_per_litre)
