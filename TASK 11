@@ -1,0 +1,15 @@
+# Task 11: Alternative Data Loading using JSON configuration structure
+import json
+
+# Simulated external config file data structure
+config_json = """
+{
+    "BASE_RATE": 30.00,
+    "FAT_ADJUSTMENT": 0.40,
+    "SNF_ADJUSTMENT": 0.30
+}
+"""
+
+# Load configuration dynamically
+rate_config = json.loads(config_json)
+print("Loaded Base Rate from JSON Config:", rate_config["BASE_RATE"])
