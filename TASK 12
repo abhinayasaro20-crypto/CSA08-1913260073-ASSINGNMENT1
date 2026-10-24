@@ -1,0 +1,33 @@
+# Task 12: Day-4 Design Challenge - Seasonal Rates and Two-Decimal Precision
+from decimal import Decimal
+
+def calculate_milk_payment(litres, fat, snf, month):
+    litres_dec = Decimal(str(litres))
+    fat_dec = Decimal(str(fat))
+    snf_dec = Decimal(str(snf))
+    
+    # Seasonal conditional rules (April to June)
+    if 4 <= month <= 6:
+        base_rate = Decimal('32.00')
+        fat_step_rate = Decimal('0.45')
+    else:
+        base_rate = Decimal('30.00')
+        fat_step_rate = Decimal('0.40')
+        
+    snf_step_rate = Decimal('0.30')
+    
+    fat_steps = (fat_dec - Decimal('3.5')) / Decimal('0.1')
+    snf_steps = (snf_dec - Decimal('8.5')) / Decimal('0.1')
+    
+    rate_per_litre = base_rate + (fat_steps * fat_step_rate) + (snf_steps * snf_step_rate)
+    
+    # Volume bonus for quantities > 500 litres
+    bonus = Decimal('0.50') if litres_dec > Decimal('500') else Decimal('0.00')
+    total_rate = rate_per_litre + bonus
+    
+    total_payment = litres_dec * total_rate
+    return total_rate, total_payment
+
+# Test Executions
+print("Regular Season (May, 600L, 3.60% fat, 8.60% SNF):", calculate_milk_payment(600, 3.60, 8.60, 5))
+print("Off Season (Jan, 400L, 3.50% fat, 8.50% SNF):", calculate_milk_payment(400, 3.50, 8.50, 1))
