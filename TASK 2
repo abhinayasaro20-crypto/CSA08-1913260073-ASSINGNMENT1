@@ -1,0 +1,14 @@
+# 1. Find the type of each value using type()
+print(type(10))          # <class 'int'>[cite: 4]
+print(type(10.0))        # <class 'float'>[cite: 4]
+print(type("10"))        # <class 'str'>[cite: 4]
+print(type(True))        # <class 'bool'>[cite: 4]
+print(type([10, 8.5]))   # <class 'list'>[cite: 4]
+
+# 2. Demonstrate the results of division and arithmetic operations
+print(-7 / 2)    # -3.5 (Standard floating-point division)[cite: 4]
+print(-7 // 2)   # -4   (Floor division rounds towards negative infinity)[cite: 4]
+print(-7 % 2)    # 1    (Modulo operation)[cite: 4]
+
+# 3. Evaluate floating-point equality
+print(0.1 + 0.2 == 0.3)  # False
